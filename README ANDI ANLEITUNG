@@ -1,0 +1,23 @@
+https://github.com/angular/angular-cli
+
+über angular-cli erstellt --> ng new clitestapp --routing
+
+Braucht ev. zuerst: --> alias ng="/usr/local/lib/node_modules/angular-cli/bin/ng"
+MACINTOSH HD usr local ...
+
+'ng serve' --> served auf http://localhost:4200 (sonst 3000)
+
+'ng build' erstellt das dist Verzeichnis, in welchem alles ist was auf den Server muss
+
+--> ng build --prod
+(--prod makes use of uglifying and tree-shaking)
+
+*****************
+
+für webpack-Funktionalität im angular-cli (geändert gegenüber demoapp):
+
+"module": "commonjs", statt "ES6" in tsconfig.json
+
+moduleId: module.id, rausgenommen aus den @Component
+
+production: true in environment.ts

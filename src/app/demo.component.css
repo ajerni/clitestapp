@@ -1,0 +1,45 @@
+.myClass{
+  color: #2581fc; /* Rechtsclick - Color Picker */
+  display: block;
+  border: 2px solid;
+  padding: 5px;
+  width: 20%;
+}
+
+.myClassRed{
+  color: rgb(240, 13, 31); /* Rechtsclick - Color Picker */
+  display: block;
+  border: 2px solid;
+  padding: 5px;
+  width: 20%;
+}
+
+button:first-of-type{
+  display: block;
+  width: 10%;
+}
+
+button:nth-of-type(2){
+  display: inline;
+}
+
+.roteKlasse {
+  color: rgb(235, 0, 35) !important;
+}
+
+.grüneKlasse{
+  color: #0bac08;
+}
+
+.italicKlasse{
+  font-style: italic;
+}
+
+input{ /* block versetzt das Element auf die nächste Zeile / inline-block nebeneinande */
+  display: inline-block;
+}
+
+label, input{
+  display: inline-block;
+  margin-top: 20px;
+}

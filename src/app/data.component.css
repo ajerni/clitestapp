@@ -1,0 +1,28 @@
+p{
+  color: red;
+  display: inline-block;
+}
+
+.persons{
+  color: blue;
+}
+
+.personsOhnePunkt{
+  color: blue;
+  list-style-type: none;
+}
+
+.links{
+  float: left;
+}
+
+.rechts{
+  float: right;
+  margin-right: 700px;
+}
+
+.selected{
+  background-color: green;
+  color: white;
+
+}

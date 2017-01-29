@@ -1,0 +1,63 @@
+<p>Daten von Web API auf: </p> <a href="https://andiapi.apispark.net/v1/persons">https://andiapi.apispark.net/v1/persons</a>
+<!-- <p style="color: black;"> Zum Testen http requests senden (GET, POST, PUT, DELETE) z.B. über:</p> <a href="http://www.requestmaker.com">http://www.requestmaker.com </a>  oder in Terminal mit curl
+<p style="color: black;">oder curl</p> -->
+<br>
+
+<div class="links">
+
+  <button (click)='goBack()'>Back</button>
+  <button (click)='checkArray()'>show persons Array in console (F12)</button>
+
+  <!-- <p>{{persons[0].name}}</p> -->
+  <h5>IDs (Anklicken!):</h5>
+  <ul class="persons">
+    <li class="personsOhnePunkt" *ngFor="let person of persons" [class.selected]="person == selectedPerson" (click)='listItemClicked(person)'> <!-- *ngFor kreiert hier mehrere <li></li> Elemente / falls mal binding Probleme: #person of persons-->
+      {{person.id}}
+    </li>
+  </ul>
+
+  <h5>Namen:</h5>
+  <ul class="persons">
+    <li *ngFor="let person of persons" (click)='listItemClicked(person)'> <!-- *ngFor kreiert hier mehrere <li></li> Elemente -->
+      {{person.name}}
+    </li>
+  </ul>
+
+  <h5>Alter +10:</h5>
+  <ul class="persons">
+    <li *ngFor="let person of persons" (click)='listItemClicked(person)'> <!-- *ngFor kreiert hier mehrere <li></li> Elemente -->
+      {{person.age | add10pipe}} <!-- custom pipe - see add-10.pipe.ts -->
+    </li>
+  </ul>
+</div>
+
+<div class="rechts">
+  <button (click)='refresh()'>GET - refresh</button>
+
+  <div *ngIf="selectedPerson"> <!-- unbedingt zuerst prüfen, ob selectedPerson existiert -->
+    <button (click)='delete(selectedPerson)'>DELETE - delete</button>
+  </div>
+
+  <!-- <div *ngIf="selectedPerson"> -> moved to person-form.html
+    <button (click)='create(selectedPerson)'>POST - create</button>
+  </div> -->
+
+  <div *ngIf="selectedPerson"> <!-- unbedingt zuerst prüfen, ob selectedPerson existiert -->
+    <button (click)='update(selectedPerson)'>PUT - update</button>
+  </div>
+
+
+  <div *ngIf="selectedPerson"> <!-- unbedingt zuerst prüfen, ob selectedPerson existiert -->
+    <h2 style="color: green">Selektiert: <span class="selected">{{selectedPerson.name}}, {{selectedPerson.age}}</span></h2> <!-- <span> eignet sich gut für Formatieren eines Teils -->
+  </div>
+
+  <person-form [selectedPersonFromDataComponent]='selectedPerson'></person-form> <!-- property binding auf die @Input() property in PersonFormComponent -->
+
+</div>
+
+<!-- wenn mehrere streams zu verarbeiten wären:
+(persons | async) im html und... im servie mit .share() am Ende:
+return this.http.get('/someUrl').map(res => res.json()).share();
+
+for "production ready" code see: http://stackoverflow.com/questions/36271899/what-is-the-correct-way-to-share-the-result-of-an-angular-2-http-network-call-in
+ -->

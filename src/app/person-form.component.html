@@ -1,0 +1,37 @@
+<div>
+    <h3>Add Person (POST) / Change Person (PUT)</h3>
+
+    <!-- <p *ngIf='selectedPersonFromDataComponent'>{{selectedPersonFromDataComponent.name}}</p> -->
+
+    <form>
+
+      <div>
+        <label for="id">ID:</label><br>
+        <select id="auswahl">
+          <option *ngFor="let wahl of auswahl" [value]="wahl">{{wahl}}</option>
+        </select>
+      </div>
+<br>
+      <div>
+        <label for="name">Name:</label><br>
+        <input id='nameInput' type="text" name="name" [(ngModel)]="form_name" />
+        <!-- <p>{{form_name}}</p> -->
+      </div>
+
+      <div>
+        <label for="age">Alter:</label><br>
+        <input type="text" name="age" [(ngModel)]="form_age" />
+        <!-- <p>{{form_age}}</p> -->
+      </div>
+<br>
+      <!-- <button type="submit" (click)="onSubmit()">Submit</button> -->
+      <div>
+        <button (click)='create()'>POST - create</button>
+      </div>
+
+      <!-- <div>
+        <button (click)='getFormName()'>get form name</button> >- testMock() ->
+      </div> -->
+
+    </form>
+</div>

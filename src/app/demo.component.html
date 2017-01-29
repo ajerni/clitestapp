@@ -1,0 +1,75 @@
+<br>
+<trennstrich></trennstrich>
+
+<zweite-view></zweite-view> <!--ZweiteComponent wird hier angezeigt -->
+
+<trennstrich></trennstrich>
+
+<div [ngClass]="{'roteKlasse': 1+1 == 2, 'italicKlasse': kursivCheck()}"> <!-- true / false - auch über Funktion oder property check (siehe unten code red) / weitere Klassen getrennt durch , -->
+  <h3>
+    {{title}} <!--interpolation / binding-->
+  </h3>
+</div>
+
+<button (click)='myFunction()'> <!--event binding (integrierte wie: click, mouseover, change etc. / oder auch eigene wie myEvent in Bsp. interaction-parent / interaction-child)-->
+   Titel toggle
+</button>
+
+<p>{{datum}}</p> <!-- wird erst angezeigt wenn das Objekt kreiert ist in myFunction() -->
+
+<input type='text' style='width:20%;' [(ngModel)]='name' placeholder="enter: 'code red' oder 'kursiv' oder 'ein Vorname'"/> <!-- two-way binding [(ngModel)] -->
+
+<button (click)='addOneYear()'>Add 1 Year</button>
+
+<h2 class='myClass' [ngClass]="{'myClassRed': name == 'code red', 'italicKlasse': kursivCheck()}">{{name | uppercase}}, {{alter}}</h2> <!-- | pipe (curency, decimal, etc.) / CSS auswahl geht auch mit [class.selected]=true/false, siehe data.component.ts-->
+
+<span [ngSwitch]=name>
+
+      <span *ngSwitchCase='"Andi"'>Jetzt steht Andi im Input-Feld</span>
+      <span *ngSwitchCase='"Jeanine"'>jetzt ist Jeanine eingegeben</span>
+      <span *ngSwitchCase='"Max"'>Vorname: Max</span>
+      <span *ngSwitchCase='"Mia"'>Mia wurde eingegeben</span>
+      <span *ngSwitchDefault>weder Andi, noch Jeanine, noch Max, noch Mia (über [ngSwitch])</span>
+<br>
+</span>
+
+<br>
+<trennstrich></trennstrich>
+
+<img [src]='bild' alt="Ladies" height="100" width="100"> <!--property binding-->
+
+<!-- <br> -->
+<!-- cmd+/ zum auskommentieren -->
+
+<button (click)='changeImage()'>
+   Bild wechseln
+</button>
+
+<br>
+<trennstrich></trennstrich>
+
+<label><input type='checkbox' [(ngModel)]='isChecked' />Check me!</label>
+
+<h4>Checked (über [(ngModel)] ): <span [ngClass]="{'roteKlasse': isChecked == false, 'grüneKlasse': isChecked == true}">{{isChecked}}</span></h4>
+
+<div *ngIf='isChecked == true'> <!-- *ngIf um ganze Elemente nur anzuzeigne, wenn true -->
+  <p>Ich werde nur angezeigt, wenn die Checkbox true ist (über *ngIf)</p>
+</div>
+
+<trennstrich></trennstrich>
+
+<p style="color: blue;">siehe: Users/Andi/angular/demo/demoapp</p>
+
+<!-- angular.io -> unzip oder git quickstart als Basis genutzt
+
+In Terminal in das Verzeichnis /Users/Andi/angular/demo/demoapp wechseln (cd),
+dann "npm start" eingeben, das geht auf localhost:4200 oder http://localhost:3000 / ctrl+c zum abbrechen
+
+oder auch "ng serve" wenn über angular-cli -
+braucht ev. zuerst ' alias ng="/Users/Andi/npm-global/bin/ng" '
+
+'ng build' erstellt das dist Verzeichnis in welchem alles ist was auf den Server muss TODO: wie geht das ohne angular-cli? Packen etc.
+
+siehe angular.andierni.ch  /  Users/Andi/angular/learning/quickstart-master
+
+Datenbank und Web API auf https://apispark.restlet.com/ (ajerni@gmail.com / b7) -->
