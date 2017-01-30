@@ -14,7 +14,7 @@ import 'rxjs/add/operator/catch';
 export class DataService {
 
    private headers = new Headers({'Content-Type': 'application/json'});
-   private apiUrl = 'https://andiapi.apispark.net/v1/persons';  // URL to web api
+   private apiUrl = 'https://andiapi.apispark.net/v1/persons';  // URL to web api (Restlet)
 
    constructor(private http: Http) { } //die private Instanz http kann jetzt wie jeder andere Service verwendet werden
 
